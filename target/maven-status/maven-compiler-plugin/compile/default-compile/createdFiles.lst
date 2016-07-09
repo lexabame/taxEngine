@@ -1,0 +1,9 @@
+org/intuit/taxengine/model/TaxTableModel.class
+org/intuit/taxengine/service/TaxForm1040EzServiceImpl.class
+org/intuit/taxengine/rules/Tax1040EzFormRuleImpl.class
+org/intuit/taxengine/main/MainTaxEngine.class
+org/intuit/taxengine/model/TaxModel.class
+org/intuit/taxengine/service/ITaxFormService.class
+org/intuit/taxengine/model/AbstractForm.class
+org/intuit/taxengine/model/Form1040EZ.class
+org/intuit/taxengine/model/IForm.class

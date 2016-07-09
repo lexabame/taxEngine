@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--<context:property-placeholder location="classpath:taxengine-config.properties" />-->
+
+    <bean
+            class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:taxengine-config.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="true"/>
+    </bean>
+
+    <bean id="taxSeviceBean" class="org.intuit.taxengine.service.TaxForm1040EzServiceImpl" autowire="byName">
+        <property name="taxRule" ref="taxRule"></property>
+    </bean>
+
+    <bean id="taxRule" class = "org.intuit.taxengine.rules.Tax1040EzFormRuleImpl" autowire="constructor">
+         <property name="federalIncomeTax" value="${taxengine-config.federal_income_tax}"></property>
+        <property name="earnedIncomeCredit" value="${taxengine-config.earned_income_credit}"></property>
+    </bean>
+
+
+</beans>
